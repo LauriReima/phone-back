@@ -1,0 +1,19 @@
+{
+  "name": "phone-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LauriReima/phone-back.git"
+  },
+  "author": "Lauri Reima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LauriReima/phone-back/issues"
+  },
+  "homepage": "https://github.com/LauriReima/phone-back#readme"
+}
