@@ -2,6 +2,19 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 
+const cors = require('cors')
+const logger = (req, res, next) => {
+    console.log('logger')
+    console.log('method:', req.method)
+    console.log('path:', req.path)
+    console.log('body:', req.body)
+    next()
+}
+
+app.use(bodyParser.json())
+app.use(logger)
+app.use(cors())
+
 let persons = [
     {
         name: "Jari Jerry",
@@ -12,6 +25,11 @@ let persons = [
         name: "Kaarina Joki",
         number: "040 765 324 7",
         id: 2
+    },
+    {
+        name: "Seppo Ilmarinen",
+        number: "040 098 321 4",
+        id: 3
     }
 ]
 
@@ -41,7 +59,7 @@ app.delete('/api/persons/:id', (req, res) => {
     res.status(204).end()
 })
 
-app.use(bodyParser.json())
+
 app.post('/api/persons/', (req, res) => {
     const nimi = req.body.name
     const numero = req.body.number
@@ -65,8 +83,12 @@ app.post('/api/persons/', (req, res) => {
     persons = persons.concat(person)
     res.json(person)
 })
+const error = (req, res) => {
+    res.status(404).send({error: 'unknown endpoint'})
+}
+app.use(error)
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`port: ${PORT}`)
 })
