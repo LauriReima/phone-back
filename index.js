@@ -3,13 +3,13 @@ const app = express()
 const bodyParser = require('body-parser')
 
 const cors = require('cors')
-const logger = (req, res, next) => {
-    console.log('logger')
-    console.log('method:', req.method)
-    console.log('path:', req.path)
-    console.log('body:', req.body)
-    next()
-}
+// const logger = (req, res, next) => {
+//     console.log('logger')
+//     console.log('method:', req.method)
+//     console.log('path:', req.path)
+//     console.log('body:', req.body)
+//     next()
+// }
 
 app.use(bodyParser.json())
 app.use(logger)
