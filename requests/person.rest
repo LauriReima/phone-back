@@ -2,12 +2,12 @@ GET http://localhost:3001/api/persons/ HTTP/1.1
 ###
 GET http://localhost:3001/api/persons/1 HTTP/1.1
 ###
-DELETE http://localhost:3001/api/persons/1
+DELETE http://localhost:3001/api/persons/6235f8d953544eabe6bbae4a
 ###
 POST http://localhost:3001/api/persons/ HTTP/1.1
 content-type: application/json
 
 {
-    "name": "jaako",
-    "number": "23"        
+    "name": "samim",
+    "number": "654345633"        
 }
