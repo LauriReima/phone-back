@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 
-const url = 'mongodb+srv://Lauri:<password>@wmdb.lvzr9.mongodb.net/personlist?retryWrites=true&w=majority'
+if (process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
+
+const url = process.env.MONGODB_URI
+
 
 
 mongoose.connect(url)

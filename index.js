@@ -92,8 +92,10 @@ app.post('/api/persons/', (req, res) => {
         name: nimi,
         number: numero
     })
-    person.save().then(savedPerson => {
-        res.json(formatPerson(savedPerson))
+    person
+        .save()
+        .then(savedPerson => {
+            res.json(formatPerson(savedPerson))
     })
 })
 const error = (req, res) => {
