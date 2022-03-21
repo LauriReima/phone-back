@@ -3,16 +3,16 @@ const app = express()
 const bodyParser = require('body-parser')
 const Person = require('./models/person')
 const cors = require('cors')
-// const logger = (req, res, next) => {
-//     console.log('logger')
-//     console.log('method:', req.method)
-//     console.log('path:', req.path)
-//     console.log('body:', req.body)
-//     next()
-// }
+const logger = (req, res, next) => {
+    console.log('logger')
+    console.log('method:', req.method)
+    console.log('path:', req.path)
+    console.log('body:', req.body)
+    next()
+}
 
 app.use(bodyParser.json())
-//app.use(logger)
+app.use(logger)
 app.use(cors())
 app.use(express.static('build'))
 
@@ -23,23 +23,7 @@ const formatPerson = (person) => {
         id: person._id
     }
 }
-let persons = [
-    // {
-    //     name: "Jari Jerry",
-    //     number: "040 123 465 7",
-    //     id: 1
-    // },
-    // {
-    //     name: "Kaarina Joki",
-    //     number: "040 765 324 7",
-    //     id: 2
-    // },
-    // {
-    //     name: "Seppo Ilmarinen",
-    //     number: "040 098 321 4",
-    //     id: 3
-    // }
-]
+let persons = []
 
 app.get('/', (req, res) => {
     res.send('<h1>hello</h1>')
